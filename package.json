@@ -1,0 +1,19 @@
+{
+    "name": "ConverseEditor",
+    "version": "1.0.0",
+    "description": "Angular based markdown editor with rich media elements",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Av3ng3r/converse-editor"
+    },
+    "author": {
+        "name": "Etienne Wilhelm Marais"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-coffee": "~0.10.1",
+        "grunt-contrib-less": "~0.9.0",
+        "grunt-contrib-watch": "~0.6.1"
+    }
+}
