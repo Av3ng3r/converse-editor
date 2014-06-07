@@ -7,5 +7,7 @@ app.config(($locationProvider) ->
 angular.element(document).ready( ->
     angular.bootstrap(document, ['app'])
 
-    console.log 'App init'
+    editor = ace.edit("editor")
+    editor.setTheme("ace/theme/monokai")
+    editor.getSession().setMode("ace/mode/markdown")
 )

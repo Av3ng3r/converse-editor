@@ -12,8 +12,8 @@ module.exports = function(grunt) {
         less: {
             compile: {
                 expand: true,
-                cwd: './app/resources/app/less',
-                src: ['**/*.less'],
+                cwd: './src/resources/app/less',
+                src: ['**/*.less', '!vendor/eve/*.less'],
                 dest: './src/css',
                 ext: '.css'
             }

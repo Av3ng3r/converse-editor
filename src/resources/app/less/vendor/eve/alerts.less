@@ -1,0 +1,83 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: @baseLineHeight;
+  /* text-shadow: 0 1px 0 rgba(255,255,255,.5); */
+  background-color: @warningBackground;
+  /* border: 1px solid @warningBorder; */
+  .box-shadow(~"0 3px 0 #bf7b0d"); // drop shadow
+  .border-radius(@baseBorderRadius);
+}
+.alert,
+.alert h4 {
+  // Specified for the h4 to prevent conflicts of changing @headingsColor
+  color: @alert-warningText;
+}
+.alert h4 {
+  margin: 0;
+}
+
+// Adjust close link position
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: @baseLineHeight;
+}
+
+
+// Alternate styles
+// -------------------------
+
+.alert-success {
+  background-color: @successBackground;
+  border-color: @successBorder;
+  color: @alert-successText;
+  .box-shadow(~"0 3px 0 #1a7a42"); // drop shadow
+}
+.alert-success h4 {
+  color: @alert-successText;
+}
+.alert-danger,
+.alert-error {
+  background-color: @errorBackground;
+  border-color: @errorBorder;
+  color: @alert-errorText;
+  .box-shadow(~"0 3px 0 #b53c2f"); // drop shadow
+}
+.alert-danger h4,
+.alert-error h4 {
+  color: @alert-errorText;
+}
+.alert-info {
+  background-color: @infoBackground;
+  border-color: @infoBorder;
+  color: @alert-infoText;
+  .box-shadow(~"0 3px 0 #6497ba"); // drop shadow
+}
+.alert-info h4 {
+  color: @alert-infoText;
+}
+
+
+// Block alerts
+// -------------------------
+
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+.alert-block p + p {
+  margin-top: 5px;
+}

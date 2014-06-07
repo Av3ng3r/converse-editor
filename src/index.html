@@ -2,9 +2,25 @@
 <html>
 <head>
     <title>Converse Markdown Editor</title>
+    <link href="css/app.css" rel="stylesheet">
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-    <script src="js/app.js"></script>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>Converse Rich media Markdown editor</h2>
+            <div class="editor-container">
+                <div class="editor" id="editor" converse-editor># Heading 1</div>
+            </div>
+            <div class="editor-preview" id="editor-preview"></div>
+        </div>
+    </div>
+</div>
+<script src="js/vendor/jquery/jquery-2.0.3.js"></script>
+<script src="js/vendor/angular/angular.min.js"></script>
+<script src="js/vendor/ace/ace.js"></script>
+<script src="js/vendor/showdown/showdown.js"></script>
+<script src="js/app.js"></script>
+<script src="js/directives.js"></script>
 </body>
 </html>

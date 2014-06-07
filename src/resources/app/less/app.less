@@ -1,0 +1,40 @@
+@import "vendor/eve/eve.less";
+
+body {
+    background: @iron;
+}
+
+.editor-container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 48.5%;
+    padding: 15px;
+    position: absolute;
+    bottom: 30px;
+    top: 100px;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 1px 5px;
+
+    .editor {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+}
+
+.editor-preview {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 49%;
+    padding: 15px;
+    position: absolute;
+    bottom: 30px;
+    top: 100px;
+    right: 20px;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 1px 5px;
+}

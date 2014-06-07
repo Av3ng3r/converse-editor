@@ -8,8 +8,11 @@
   });
 
   angular.element(document).ready(function() {
+    var editor;
     angular.bootstrap(document, ['app']);
-    return console.log('App init');
+    editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    return editor.getSession().setMode("ace/mode/markdown");
   });
 
 }).call(this);
