@@ -1,6 +1,8 @@
-converse-editor
+converse-editor Beta
 ===============
 
-An angular js based, markdown editor, with instant preview.
+An angular js based, rich media markdown editor, with instant preview.
 
 ## Editor features
+
+
