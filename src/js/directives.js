@@ -11,15 +11,21 @@
     });
     return {
       restrict: 'A',
-      link: function(scope, element, attributes) {
-        var editor, html;
-        editor = ace.edit('editor');
-        html = converter.makeHtml(editor.getSession().getValue());
-        jQuery('#editor-preview').html(html);
-        return editor.getSession().on('change', function() {
+      template: '<div class="toolbar"></div>' + '<div class="editor" id="editor"></div>',
+      controller: function($scope) {
+        return $scope.init = function() {
+          var editor, html;
+          editor = ace.edit('editor');
           html = converter.makeHtml(editor.getSession().getValue());
-          return jQuery('#editor-preview').html(html);
-        });
+          jQuery('#editor-preview').html(html);
+          return editor.getSession().on('change', function() {
+            html = converter.makeHtml(editor.getSession().getValue());
+            return jQuery('#editor-preview').html(html);
+          });
+        };
+      },
+      link: function(scope, element, attributes) {
+        return scope.init();
       }
     };
   });

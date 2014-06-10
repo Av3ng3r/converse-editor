@@ -5,12 +5,19 @@ editorModule.directive 'converseEditor', () ->
         'tables': true
     })
     restrict: 'A',
-    link: (scope, element, attributes) ->
-        editor = ace.edit('editor')
-        html = converter.makeHtml(editor.getSession().getValue())
-        jQuery('#editor-preview').html(html)
+    template: '<div class="toolbar"></div>' +
+        '<div class="editor" id="editor"></div>',
 
-        editor.getSession().on('change', () ->
+    controller: ($scope) ->
+        $scope.init = () ->
+            editor = ace.edit('editor')
             html = converter.makeHtml(editor.getSession().getValue())
             jQuery('#editor-preview').html(html)
-        )
+
+            editor.getSession().on('change', () ->
+                html = converter.makeHtml(editor.getSession().getValue())
+                jQuery('#editor-preview').html(html)
+            )
+
+    link: (scope, element, attributes) ->
+        scope.init()
