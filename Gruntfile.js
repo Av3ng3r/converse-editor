@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             compile: {
                 expand: true,
                 cwd: './src/resources/app/less',
-                src: ['**/*.less', '!vendor/eve/*.less'],
+                src: ['**/*.less', '!vendor/eve/*.less', '!vendor/eve/fontawesome/*.less', '!vendor/bootstrap/*.less', '!vendor/bootstrap/fontawesome/*.less', '!vendor/bootstrap/mixins/*.less'],
                 dest: './src/css',
                 ext: '.css'
             }

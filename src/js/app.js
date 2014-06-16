@@ -8,17 +8,7 @@
   });
 
   angular.element(document).ready(function() {
-    var editor;
-    angular.bootstrap(document, ['app']);
-    editor = ace.edit("editor");
-    editor.setTheme("ace/theme/chrome");
-    editor.getSession().setMode("ace/mode/markdown");
-    editor.renderer.setShowGutter(false);
-    editor.renderer.setShowPrintMargin(false);
-    return editor.setOptions({
-      fontFamily: "Source Code Pro, Monaco, Menlo, Consolas, Courier New, monospace",
-      fontSize: "20px"
-    });
+    return angular.bootstrap(document, ['app']);
   });
 
 }).call(this);
