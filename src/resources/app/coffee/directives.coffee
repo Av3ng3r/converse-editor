@@ -15,21 +15,21 @@ editorModule.directive 'converseEditor', () ->
 
         $scope.initText = "# Heading\n\n
 
-        `This is some well code`\n\n
+`This is some well code`\n\n
 
-            \tCode\n
-            \tIs\n
-            \tCool\n\n
+    \tCode\n
+    \tIs\n
+    \tCool\n\n
 
-        This is an example\n\n
+This is an example\n\n
 
-        This is [an example](http://example.com/ \"Title\") inline link.\n\n
+This is [an example](http://example.com/ \"Title\") inline link.\n\n
 
-        [This link](http://example.net/) has no title attribute.\n\n
+[This link](http://example.net/) has no title attribute.\n\n
 
-        See my [About](/about/) page for details.\n\n
+See my [About](/about/) page for details.\n\n
 
-        Use the `printf()` function."
+Use the `printf()` function."
 
         $scope.init = () ->
             editor = ace.edit("editor")
@@ -43,7 +43,7 @@ editorModule.directive 'converseEditor', () ->
                 fontSize: "18px"
             })
 
-            editor.getSession().setValue($scope.initText, -1)
+            editor.getSession().setValue($scope.initText, 0)
 
             html = converter.makeHtml(editor.getSession().getValue())
             jQuery('#editor-preview').html(html)

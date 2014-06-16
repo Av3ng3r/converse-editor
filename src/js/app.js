@@ -8,7 +8,7 @@
   });
 
   angular.element(document).ready(function() {
-    return angular.bootstrap(document, ['app']);
+    return angular.bootstrap(document, ['app', 'ui.bootstrap.dropdown']);
   });
 
 }).call(this);

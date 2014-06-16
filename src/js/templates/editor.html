@@ -1,9 +1,24 @@
 <div class="toolbar">
     <div class="row">
         <div class="col-lg-12">
-                <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-bold"></i></button>
-                <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-italic"></i></button>
-                <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-underline"></i></button>
+            <div class="btn-group" dropdown>
+                <button type="button" class="btn btn-sm btn-default">Headings</button>
+                <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Heading 1</a></li>
+                    <li><a href="#">Heading 2</a></li>
+                    <li><a href="#">Heading 3</a></li>
+                    <li><a href="#">Heading 4</a></li>
+                    <li><a href="#">Heading 5</a></li>
+                    <li><a href="#">Heading 6</a></li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-bold"></i></button>
+            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-italic"></i></button>
+            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-underline"></i></button>
         </div>
     </div>
 </div>

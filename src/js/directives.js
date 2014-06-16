@@ -27,7 +27,7 @@
             fontFamily: "Source Code Pro, Monaco, Menlo, Consolas, Courier New, monospace",
             fontSize: "18px"
           });
-          editor.getSession().setValue($scope.initText, -1);
+          editor.getSession().setValue($scope.initText, 0);
           html = converter.makeHtml(editor.getSession().getValue());
           jQuery('#editor-preview').html(html);
           return editor.getSession().on('change', function() {
