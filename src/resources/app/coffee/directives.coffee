@@ -48,29 +48,41 @@ This is an example of a paragraph\n\n
                 jQuery('#editor-preview').html(html)
             )
 
+            $scope.setFocus()
+
+        $scope.setFocus = () ->
+            $scope.editor.focus();
+            n = $scope.editor.getSession().getValue().split("\n").length;
+            $scope.editor.gotoLine(n + 1);
+
         $scope.bold = () ->
             pattern = /\*\*([a-z_\s]+)\*\*/i
 
             $scope.toggle(pattern, "**", "**")
 
         $scope.italic = () ->
-            pattern = /_([a-z\s]+)_/i
+            pattern = /_([\*\*a-z\*\*\s]+)_/i
 
             $scope.toggle(pattern, "_", "_")
-
 
         $scope.toggle = (pattern, prefix, postfix) ->
             range = $scope.editor.selection.getRange()
 
-            selection = $scope.editor.getSession().getTextRange($scope.editor.getSelectionRange()).trim()
+            selection = $scope.editor.session.getTextRange($scope.editor.getSelectionRange()).trim()
 
             if selection == ''
+                $scope.editor.insert("#{prefix}emphasis#{postfix} ")
                 return
 
             if pattern.test(selection) == true
-                $scope.editor.getSession().replace(range, selection.replace(pattern, "$1"))
+                $scope.editor.session.replace(range, selection.replace(pattern, "$1"))
+
             else
-                $scope.editor.getSession().replace(range, "#{prefix}#{selection}#{postfix}")
+                $scope.editor.session.replace(range, "#{prefix}#{selection}#{postfix}")
+
+            range.end.column += parseInt(prefix.length * 2)
+
+            $scope.editor.selection.setSelectionRange(range)
 
 
     link: (scope, element, attributes) ->

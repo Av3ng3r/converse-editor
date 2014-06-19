@@ -30,10 +30,17 @@
           $scope.editor.getSession().setValue($scope.initText, -1);
           html = converter.makeHtml($scope.editor.getSession().getValue());
           jQuery('#editor-preview').html(html);
-          return $scope.editor.getSession().on('change', function() {
+          $scope.editor.getSession().on('change', function() {
             html = converter.makeHtml($scope.editor.getSession().getValue());
             return jQuery('#editor-preview').html(html);
           });
+          return $scope.setFocus();
+        };
+        $scope.setFocus = function() {
+          var n;
+          $scope.editor.focus();
+          n = $scope.editor.getSession().getValue().split("\n").length;
+          return $scope.editor.gotoLine(n + 1);
         };
         $scope.bold = function() {
           var pattern;
@@ -42,21 +49,24 @@
         };
         $scope.italic = function() {
           var pattern;
-          pattern = /_([a-z\s]+)_/i;
+          pattern = /_([\*\*a-z\*\*\s]+)_/i;
           return $scope.toggle(pattern, "_", "_");
         };
         return $scope.toggle = function(pattern, prefix, postfix) {
           var range, selection;
           range = $scope.editor.selection.getRange();
-          selection = $scope.editor.getSession().getTextRange($scope.editor.getSelectionRange()).trim();
+          selection = $scope.editor.session.getTextRange($scope.editor.getSelectionRange()).trim();
           if (selection === '') {
+            $scope.editor.insert("" + prefix + "emphasis" + postfix + " ");
             return;
           }
           if (pattern.test(selection) === true) {
-            return $scope.editor.getSession().replace(range, selection.replace(pattern, "$1"));
+            $scope.editor.session.replace(range, selection.replace(pattern, "$1"));
           } else {
-            return $scope.editor.getSession().replace(range, "" + prefix + selection + postfix);
+            $scope.editor.session.replace(range, "" + prefix + selection + postfix);
           }
+          range.end.column += parseInt(prefix.length * 2);
+          return $scope.editor.selection.setSelectionRange(range);
         };
       },
       link: function(scope, element, attributes) {
